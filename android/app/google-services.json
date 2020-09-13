@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1013878230168",
+    "firebase_url": "https://judqueue.firebaseio.com",
+    "project_id": "judqueue",
+    "storage_bucket": "judqueue.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013878230168:android:ab1966ff2859616af9d4ed",
+        "android_client_info": {
+          "package_name": "com.judqueue.judqueue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1013878230168-dulu43a979ltv2vvpr4agkodlsmv8ln5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGEoY54D5076UfBNFoofo_z27pXb_Sw6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1013878230168-dulu43a979ltv2vvpr4agkodlsmv8ln5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1013878230168-7nmi6a0j981qe2mt59g4pplnip1836lk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.judqueue.judqueue"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

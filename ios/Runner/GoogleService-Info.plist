@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1013878230168-7nmi6a0j981qe2mt59g4pplnip1836lk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1013878230168-7nmi6a0j981qe2mt59g4pplnip1836lk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCYR443b1Ls3oWCKDQ9MDISu-N4DMX8B08</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1013878230168</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.judqueue.judqueue</string>
+	<key>PROJECT_ID</key>
+	<string>judqueue</string>
+	<key>STORAGE_BUCKET</key>
+	<string>judqueue.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1013878230168:ios:823ab49862c9078ef9d4ed</string>
+	<key>DATABASE_URL</key>
+	<string>https://judqueue.firebaseio.com</string>
+</dict>
+</plist>
