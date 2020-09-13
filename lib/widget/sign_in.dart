@@ -7,6 +7,7 @@ import 'package:judqueue/teacherscreen/welcome_tearcher.dart';
 import 'package:judqueue/utility/decoration_function.dart';
 import 'package:judqueue/utility/palette.dart';
 import 'package:judqueue/utility/sign_in_up_bar.dart';
+import 'package:judqueue/utility/normal_dialog.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -51,20 +52,28 @@ class _SignInState extends State<SignIn> {
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 16),
                   child: TextFormField(
+                    onChanged: (value) => user = value.trim(),
                     decoration: signInInputDecoraton(hintText: 'Email'),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 16),
                   child: TextFormField(
+                    onChanged: (value) => password = value.trim(),
                     decoration: signInInputDecoraton(hintText: 'Password'),
                   ),
                 ),
                 SignInBar(
                   label: 'Sign In',
                   onPressed: () {
-                    Firebase.initializeApp().then((value) => null);
-                    // context.signInWithEmailAndPassword();
+                    if (user == null ||
+                        user.isEmpty ||
+                        password == null ||
+                        password.isEmpty) {
+                      normalDialog(context, 'Please fill every blank');
+                    } else {
+                      checkUserPassword();
+                    }
                   },
                   isLoading: isLoading,
                 ),
@@ -117,11 +126,7 @@ class _SignInState extends State<SignIn> {
   Future<Null> checkType(String uid) async {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-    await FirebaseFirestore.instance
-        .collection('Type')
-        .doc(uid)
-        .snapshots()
-        .listen((event) {
+    await firestore.collection('Type').doc(uid).snapshots().listen((event) {
       print('event ==>> ${event.data()}');
       String type = event.data()['Type'];
       print('Type ==>> $type');
@@ -150,5 +155,25 @@ class _SignInState extends State<SignIn> {
         break;
       default:
     }
+  }
+
+  Future<Null> checkUserPassword() async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    await auth
+        .signInWithEmailAndPassword(email: user, password: password)
+        .then((value) async {
+      String uid = value.user.uid;
+      await FirebaseFirestore.instance
+          .collection('Type')
+          .doc(uid)
+          .snapshots()
+          .listen((event) {
+        String type = event.data()['Type'];
+        routeToService(type);
+      });
+    }).catchError((response) {
+      String string = response.message;
+      normalDialog(context, string);
+    });
   }
 }
